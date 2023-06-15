@@ -88,7 +88,7 @@ Resources:
       FunctionName: !Sub "${Stage}-NewsDigest-CreateNewsDigest"
       SnapStart:
         ApplyOn: PublishedVersions
-      CodeUri: C:\Users\vishw\news-digest-service\application
+      
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref NewsDigestTable
