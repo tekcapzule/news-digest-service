@@ -57,12 +57,28 @@ Resources:
       AttributeDefinitions:
         - AttributeName: code
           AttributeType: S
+        - AttributeName: status
+          AttributeType: S
+        - AttributeName: category
+          AttributeType: S
       KeySchema:
         - AttributeName: code
           KeyType: HASH
       ProvisionedThroughput:
         ReadCapacityUnits: 1
         WriteCapacityUnits: 1
+      GlobalSecondaryIndexes:
+        - IndexName: categoryGSI
+          KeySchema:
+            - AttributeName: status
+              KeyType: HASH
+            - AttributeName: category
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+          ProvisionedThroughput:
+            ReadCapacityUnits: 1
+            WriteCapacityUnits: 1
 
   # Setup Lambda Functions
 
@@ -72,6 +88,7 @@ Resources:
       FunctionName: !Sub "${Stage}-NewsDigest-CreateNewsDigest"
       SnapStart:
         ApplyOn: PublishedVersions
+      CodeUri: C:\Users\vishw\news-digest-service\application
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref NewsDigestTable
