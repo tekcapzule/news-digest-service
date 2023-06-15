@@ -32,13 +32,14 @@ public class NewsDigestRepositoryImpl implements NewsDigestDynamoRepository {
 
         HashMap<String, String> expNames = new HashMap<>();
         expNames.put("#status", "status");
+
         DynamoDBQueryExpression<Digest> queryExpression = new DynamoDBQueryExpression<Digest>()
+                .withIndexName("categoryGSI").withConsistentRead(false)
                 .withKeyConditionExpression("#status = :status")
                 .withExpressionAttributeValues(expAttributes)
                 .withExpressionAttributeNames(expNames);
-        PaginatedQueryList<Digest> digests = dynamo.query(Digest.class, queryExpression);
-        return digests;
 
+        return dynamo.query(Digest.class, queryExpression);
     }
 
     @Override
