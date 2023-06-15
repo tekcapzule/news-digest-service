@@ -53,7 +53,7 @@ Resources:
   NewsDigestTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: !Sub "${Stage}NewsDigest"
+      TableName: !Sub "${Stage}Digest"
       AttributeDefinitions:
         - AttributeName: code
           AttributeType: S
