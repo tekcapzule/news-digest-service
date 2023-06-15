@@ -1,4 +1,5 @@
 /Users/linjithkunnon/Desktop/Workspace/TekCapsule/news-digest-service/domain/src/main/java/com/tekcapsule/newsdigest/domain/repository/NewsDigestRepositoryImpl.java
+/Users/linjithkunnon/Desktop/Workspace/TekCapsule/news-digest-service/domain/src/main/java/com/tekcapsule/newsdigest/domain/command/ApproveCommand.java
 /Users/linjithkunnon/Desktop/Workspace/TekCapsule/news-digest-service/domain/src/main/java/com/tekcapsule/newsdigest/domain/command/CreateCommand.java
 /Users/linjithkunnon/Desktop/Workspace/TekCapsule/news-digest-service/domain/src/main/java/com/tekcapsule/newsdigest/domain/service/NewsDigestServiceImpl.java
 /Users/linjithkunnon/Desktop/Workspace/TekCapsule/news-digest-service/domain/src/main/java/com/tekcapsule/newsdigest/domain/model/Digest.java
@@ -7,3 +8,4 @@
 /Users/linjithkunnon/Desktop/Workspace/TekCapsule/news-digest-service/domain/src/main/java/com/tekcapsule/newsdigest/domain/model/Category.java
 /Users/linjithkunnon/Desktop/Workspace/TekCapsule/news-digest-service/domain/src/main/java/com/tekcapsule/newsdigest/domain/repository/NewsDigestDynamoRepository.java
 /Users/linjithkunnon/Desktop/Workspace/TekCapsule/news-digest-service/domain/src/main/java/com/tekcapsule/newsdigest/domain/command/UpdateCommand.java
+/Users/linjithkunnon/Desktop/Workspace/TekCapsule/news-digest-service/domain/src/main/java/com/tekcapsule/newsdigest/domain/model/Status.java

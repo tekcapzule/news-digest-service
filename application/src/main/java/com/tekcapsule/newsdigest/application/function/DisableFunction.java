@@ -40,7 +40,7 @@ public class DisableFunction implements Function<Message<DisableInput>, Message<
         String stage = appConfig.getStage().toUpperCase();
         try {
             DisableInput disableInput = disableInputMessage.getPayload();
-            log.info(String.format("Entering disable topic Function - Digest Code:%s", disableInput.getCode()));
+            log.info(String.format("Entering disable digest function - Digest Code:%s", disableInput.getCode()));
             Origin origin = HeaderUtil.buildOriginFromHeaders(disableInputMessage.getHeaders());
             DisableCommand disableCommand = InputOutputMapper.buildDisableCommandFromDisableInput.apply(disableInput, origin);
             newsDigestService.disable(disableCommand);

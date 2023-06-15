@@ -6,8 +6,6 @@ import com.tekcapsule.core.domain.AggregateRoot;
 import com.tekcapsule.core.domain.BaseDomainEntity;
 import lombok.*;
 
-import java.util.List;
-
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -22,14 +20,18 @@ public class Digest extends BaseDomainEntity implements AggregateRoot {
     private String code;
     @DynamoDBAttribute(attributeName = "title")
     private String title;
-    @DynamoDBAttribute(attributeName = "categories")
-    private List<Category> categories;
-    @DynamoDBAttribute(attributeName = "summary")
-    private String summary;
+    @DynamoDBAttribute(attributeName = "category")
+    private Category category;
+    @DynamoDBAttribute(attributeName = "author")
+    private String author;
     @DynamoDBAttribute(attributeName = "description")
     private String description;
     @DynamoDBAttribute(attributeName = "imageUrl")
     private String imageUrl;
+    @DynamoDBAttribute(attributeName = "recommendations")
+    private int recommendations;
+    @DynamoDBAttribute(attributeName = "schedule")
+    private String schedule;
     @DynamoDBAttribute(attributeName = "status")
-    private String status;
+    private Status status;
 }

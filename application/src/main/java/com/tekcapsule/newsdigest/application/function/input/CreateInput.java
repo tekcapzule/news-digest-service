@@ -5,16 +5,14 @@ import com.tekcapsule.newsdigest.domain.model.Category;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 @NoArgsConstructor
 public class CreateInput {
-    private String code;
     private String title;
-    private List<Category> categories;
-    private String summary;
+    private Category category;
+    private String author;
     private String description;
+    private String schedule;
     private String imageUrl;
 }

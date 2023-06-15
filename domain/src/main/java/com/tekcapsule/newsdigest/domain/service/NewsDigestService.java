@@ -1,5 +1,6 @@
 package com.tekcapsule.newsdigest.domain.service;
 
+import com.tekcapsule.newsdigest.domain.command.ApproveCommand;
 import com.tekcapsule.newsdigest.domain.command.CreateCommand;
 import com.tekcapsule.newsdigest.domain.command.DisableCommand;
 import com.tekcapsule.newsdigest.domain.command.UpdateCommand;
@@ -15,6 +16,8 @@ public interface NewsDigestService {
     void update(UpdateCommand updateCommand);
 
     void disable(DisableCommand disableCommand);
+
+    void approve(ApproveCommand approveCommand);
 
     List<Digest> findAll();
 

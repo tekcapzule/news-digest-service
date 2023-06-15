@@ -1,4 +1,5 @@
 com/tekcapsule/newsdigest/domain/model/Category.class
+com/tekcapsule/newsdigest/domain/command/ApproveCommand$ApproveCommandBuilder.class
 com/tekcapsule/newsdigest/domain/repository/NewsDigestRepositoryImpl.class
 com/tekcapsule/newsdigest/domain/command/CreateCommand$CreateCommandBuilder.class
 com/tekcapsule/newsdigest/domain/model/Digest.class
@@ -8,7 +9,8 @@ com/tekcapsule/newsdigest/domain/command/DisableCommand$DisableCommandBuilder.cl
 com/tekcapsule/newsdigest/domain/repository/NewsDigestDynamoRepository.class
 com/tekcapsule/newsdigest/domain/service/NewsDigestServiceImpl.class
 com/tekcapsule/newsdigest/domain/command/UpdateCommand$UpdateCommandBuilder.class
+com/tekcapsule/newsdigest/domain/command/ApproveCommand.class
 com/tekcapsule/newsdigest/domain/command/DisableCommand.class
 com/tekcapsule/newsdigest/domain/service/NewsDigestService.class
-com/tekcapsule/newsdigest/domain/model/Category$CategoryBuilder.class
+com/tekcapsule/newsdigest/domain/model/Status.class
 com/tekcapsule/newsdigest/domain/command/CreateCommand.class

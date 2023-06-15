@@ -3,9 +3,11 @@ package com.tekcapsule.newsdigest.application.mapper;
 import com.tekcapsule.core.domain.Command;
 import com.tekcapsule.core.domain.ExecBy;
 import com.tekcapsule.core.domain.Origin;
+import com.tekcapsule.newsdigest.application.function.input.ApproveInput;
 import com.tekcapsule.newsdigest.application.function.input.CreateInput;
 import com.tekcapsule.newsdigest.application.function.input.DisableInput;
 import com.tekcapsule.newsdigest.application.function.input.UpdateInput;
+import com.tekcapsule.newsdigest.domain.command.ApproveCommand;
 import com.tekcapsule.newsdigest.domain.command.CreateCommand;
 import com.tekcapsule.newsdigest.domain.command.DisableCommand;
 import com.tekcapsule.newsdigest.domain.command.UpdateCommand;
@@ -49,6 +51,13 @@ public final class InputOutputMapper {
         BeanUtils.copyProperties(disableInput, disableCommand);
         addOrigin.apply(disableCommand, origin);
         return disableCommand;
+    };
+
+    public static final BiFunction<ApproveInput, Origin, ApproveCommand> buildApproveCommandFromApproveInput = (disableInput, origin) -> {
+        ApproveCommand approveCommand =  ApproveCommand.builder().build();
+        BeanUtils.copyProperties(disableInput, approveCommand);
+        addOrigin.apply(approveCommand, origin);
+        return approveCommand;
     };
 
 }

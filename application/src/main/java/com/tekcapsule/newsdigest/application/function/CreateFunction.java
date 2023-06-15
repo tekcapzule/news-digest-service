@@ -41,7 +41,7 @@ public class CreateFunction implements Function<Message<CreateInput>, Message<Vo
 
         try {
             CreateInput createInput = createInputMessage.getPayload();
-            log.info(String.format("Entering create topic Function - Digest Code:%s", createInput.getCode()));
+            log.info(String.format("Entering create digest function - Digest :%s", createInput.getTitle()));
             Origin origin = HeaderUtil.buildOriginFromHeaders(createInputMessage.getHeaders());
             CreateCommand createCommand = InputOutputMapper.buildCreateCommandFromCreateInput.apply(createInput, origin);
             newsDigestService.create(createCommand);

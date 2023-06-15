@@ -9,4 +9,6 @@ com/tekcapsule/newsdigest/application/function/input/DisableInput.class
 com/tekcapsule/newsdigest/application/function/input/CreateInput.class
 com/tekcapsule/newsdigest/application/function/GetAllFunction.class
 com/tekcapsule/newsdigest/application/function/UpdateFunction.class
+com/tekcapsule/newsdigest/application/function/input/ApproveInput.class
+com/tekcapsule/newsdigest/application/function/ApproveFunction.class
 com/tekcapsule/newsdigest/application/function/GetFunction.class

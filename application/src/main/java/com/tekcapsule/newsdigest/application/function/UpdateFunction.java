@@ -41,7 +41,7 @@ public class UpdateFunction implements Function<Message<UpdateInput>, Message<Vo
 
         try {
             UpdateInput updateInput = updateInputMessage.getPayload();
-            log.info(String.format("Entering update topic Function - Digest Code:%s", updateInput.getTitle()));
+            log.info(String.format("Entering update digest Function - Digest Code:%s", updateInput.getTitle()));
             Origin origin = HeaderUtil.buildOriginFromHeaders(updateInputMessage.getHeaders());
             UpdateCommand updateCommand = InputOutputMapper.buildUpdateCommandFromUpdateInput.apply(updateInput, origin);
             newsDigestService.update(updateCommand);
