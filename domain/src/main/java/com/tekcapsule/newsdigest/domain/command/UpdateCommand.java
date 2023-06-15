@@ -14,6 +14,7 @@ public class UpdateCommand extends Command {
     private String title;
     private Category category;
     private String author;
+    private String summary;
     private String description;
     private String schedule;
     private String imageUrl;

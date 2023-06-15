@@ -24,6 +24,8 @@ public class Digest extends BaseDomainEntity implements AggregateRoot {
     private Category category;
     @DynamoDBAttribute(attributeName = "author")
     private String author;
+    @DynamoDBAttribute(attributeName = "summary")
+    private String summary;
     @DynamoDBAttribute(attributeName = "description")
     private String description;
     @DynamoDBAttribute(attributeName = "imageUrl")

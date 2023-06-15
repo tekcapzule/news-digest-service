@@ -38,6 +38,7 @@ public class NewsDigestServiceImpl implements NewsDigestService {
                 .schedule(createCommand.getSchedule())
                 .imageUrl(createCommand.getImageUrl())
                 .category(createCommand.getCategory())
+                .summary(createCommand.getSummary())
                 .status(Status.SUBMITTED)
                 .build();
 
@@ -56,6 +57,7 @@ public class NewsDigestServiceImpl implements NewsDigestService {
         Digest digest = newsDigestDynamoRepository.findBy(updateCommand.getCode());
         if (digest != null) {
             digest.setTitle(updateCommand.getTitle());
+            digest.setSummary(updateCommand.getSummary());
             digest.setDescription(updateCommand.getDescription());
             digest.setCategory(updateCommand.getCategory());
             digest.setImageUrl(updateCommand.getImageUrl());
