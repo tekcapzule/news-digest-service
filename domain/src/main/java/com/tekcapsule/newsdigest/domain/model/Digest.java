@@ -21,6 +21,7 @@ public class Digest extends BaseDomainEntity implements AggregateRoot {
     @DynamoDBAttribute(attributeName = "title")
     private String title;
     @DynamoDBAttribute(attributeName = "category")
+    @DynamoDBTypeConvertedEnum
     private Category category;
     @DynamoDBAttribute(attributeName = "author")
     private String author;
@@ -35,5 +36,6 @@ public class Digest extends BaseDomainEntity implements AggregateRoot {
     @DynamoDBAttribute(attributeName = "schedule")
     private String schedule;
     @DynamoDBAttribute(attributeName = "status")
+    @DynamoDBTypeConvertedEnum
     private Status status;
 }
