@@ -17,4 +17,5 @@ public class CreateCommand extends Command {
     private String description;
     private String schedule;
     private String imageUrl;
+    private int recommendations;
 }

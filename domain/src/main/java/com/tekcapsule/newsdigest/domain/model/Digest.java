@@ -38,4 +38,5 @@ public class Digest extends BaseDomainEntity implements AggregateRoot {
     @DynamoDBAttribute(attributeName = "status")
     @DynamoDBTypeConvertedEnum
     private Status status;
+
 }

@@ -61,6 +61,8 @@ Resources:
           AttributeType: S
         - AttributeName: category
           AttributeType: S
+        - AttributeName: recommendations
+          AttributeType: N
       KeySchema:
         - AttributeName: code
           KeyType: HASH
@@ -73,6 +75,18 @@ Resources:
             - AttributeName: status
               KeyType: HASH
             - AttributeName: category
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+          ProvisionedThroughput:
+            ReadCapacityUnits: 1
+            WriteCapacityUnits: 1
+
+        - IndexName: trendingGSI
+          KeySchema:
+            - AttributeName: status
+              KeyType: HASH
+            - AttributeName: recommendations
               KeyType: RANGE
           Projection:
             ProjectionType: ALL
@@ -205,6 +219,27 @@ Resources:
           Type: Api
           Properties:
             Path: news-digest/getAll
+            Method: post
+            RestApiId:
+              Ref: NewsDigestApi
+
+  RecommendNewsDigestFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub "${Stage}-Tekbyte-RecommendNewsDigest"
+      SnapStart:
+        ApplyOn: PublishedVersions
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref NewsDigestTable
+      Environment:
+        Variables:
+          SPRING_CLOUD_FUNCTION_DEFINITION: recommendFunction
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: news-digest/recommend
             Method: post
             RestApiId:
               Ref: NewsDigestApi
