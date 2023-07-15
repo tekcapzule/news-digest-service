@@ -1,9 +1,6 @@
 package com.tekcapsule.newsdigest.domain.service;
 
-import com.tekcapsule.newsdigest.domain.command.ApproveCommand;
-import com.tekcapsule.newsdigest.domain.command.CreateCommand;
-import com.tekcapsule.newsdigest.domain.command.DisableCommand;
-import com.tekcapsule.newsdigest.domain.command.UpdateCommand;
+import com.tekcapsule.newsdigest.domain.command.*;
 import com.tekcapsule.newsdigest.domain.model.Digest;
 
 import java.util.List;
@@ -22,4 +19,5 @@ public interface NewsDigestService {
     List<Digest> findAll();
 
     Digest findBy(String code);
+    void recommend(RecommendCommand recommendCommand);
 }

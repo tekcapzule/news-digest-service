@@ -3,14 +3,8 @@ package com.tekcapsule.newsdigest.application.mapper;
 import com.tekcapsule.core.domain.Command;
 import com.tekcapsule.core.domain.ExecBy;
 import com.tekcapsule.core.domain.Origin;
-import com.tekcapsule.newsdigest.application.function.input.ApproveInput;
-import com.tekcapsule.newsdigest.application.function.input.CreateInput;
-import com.tekcapsule.newsdigest.application.function.input.DisableInput;
-import com.tekcapsule.newsdigest.application.function.input.UpdateInput;
-import com.tekcapsule.newsdigest.domain.command.ApproveCommand;
-import com.tekcapsule.newsdigest.domain.command.CreateCommand;
-import com.tekcapsule.newsdigest.domain.command.DisableCommand;
-import com.tekcapsule.newsdigest.domain.command.UpdateCommand;
+import com.tekcapsule.newsdigest.application.function.input.*;
+import com.tekcapsule.newsdigest.domain.command.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 
@@ -58,6 +52,13 @@ public final class InputOutputMapper {
         BeanUtils.copyProperties(disableInput, approveCommand);
         addOrigin.apply(approveCommand, origin);
         return approveCommand;
+    };
+
+    public static final BiFunction<RecommendInput, Origin, RecommendCommand> buildRecommendCommandFromRecommendInput = (recommendInput, origin) -> {
+        RecommendCommand recommendCommand =  RecommendCommand.builder().build();
+        BeanUtils.copyProperties(recommendInput, recommendCommand);
+        addOrigin.apply(recommendCommand, origin);
+        return recommendCommand;
     };
 
 }

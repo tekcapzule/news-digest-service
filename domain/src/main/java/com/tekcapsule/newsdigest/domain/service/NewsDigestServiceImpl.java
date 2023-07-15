@@ -1,9 +1,6 @@
 package com.tekcapsule.newsdigest.domain.service;
 
-import com.tekcapsule.newsdigest.domain.command.ApproveCommand;
-import com.tekcapsule.newsdigest.domain.command.CreateCommand;
-import com.tekcapsule.newsdigest.domain.command.DisableCommand;
-import com.tekcapsule.newsdigest.domain.command.UpdateCommand;
+import com.tekcapsule.newsdigest.domain.command.*;
 import com.tekcapsule.newsdigest.domain.model.Digest;
 import com.tekcapsule.newsdigest.domain.model.Status;
 import com.tekcapsule.newsdigest.domain.repository.NewsDigestDynamoRepository;
@@ -40,6 +37,7 @@ public class NewsDigestServiceImpl implements NewsDigestService {
                 .category(createCommand.getCategory())
                 .summary(createCommand.getSummary())
                 .status(Status.SUBMITTED)
+                .recommendations(createCommand.getRecommendations())
                 .build();
 
         digest.setAddedOn(createCommand.getExecOn());
@@ -65,6 +63,7 @@ public class NewsDigestServiceImpl implements NewsDigestService {
             digest.setSchedule(updateCommand.getSchedule());
             digest.setUpdatedOn(updateCommand.getExecOn());
             digest.setUpdatedBy(updateCommand.getExecBy().getUserId());
+            digest.setRecommendations(updateCommand.getRecommendations());
             newsDigestDynamoRepository.save(digest);
         }
     }
@@ -94,6 +93,23 @@ public class NewsDigestServiceImpl implements NewsDigestService {
             digest.setStatus(Status.ACTIVE);
             digest.setUpdatedOn(approveCommand.getExecOn());
             digest.setUpdatedBy(approveCommand.getExecBy().getUserId());
+            newsDigestDynamoRepository.save(digest);
+        }
+    }
+
+    @Override
+    public void recommend(RecommendCommand recommendCommand) {
+        log.info(String.format("Entering recommend newsdigest service -  newsdigest code:%s", recommendCommand.getCode()));
+
+        Digest digest = newsDigestDynamoRepository.findBy(recommendCommand.getCode());
+        if (digest != null) {
+            Integer recommendationsCount = digest.getRecommendations();
+            recommendationsCount += 1;
+            digest.setRecommendations(recommendationsCount);
+
+            digest.setUpdatedOn(recommendCommand.getExecOn());
+            digest.setUpdatedBy(recommendCommand.getExecBy().getUserId());
+
             newsDigestDynamoRepository.save(digest);
         }
     }
