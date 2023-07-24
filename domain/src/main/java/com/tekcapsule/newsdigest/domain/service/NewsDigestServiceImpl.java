@@ -34,6 +34,7 @@ public class NewsDigestServiceImpl implements NewsDigestService {
                 .author(createCommand.getAuthor())
                 .schedule(createCommand.getSchedule())
                 .imageUrl(createCommand.getImageUrl())
+                .resourceUrl(createCommand.getResourceUrl())
                 .category(createCommand.getCategory())
                 .summary(createCommand.getSummary())
                 .status(Status.SUBMITTED)
@@ -59,6 +60,7 @@ public class NewsDigestServiceImpl implements NewsDigestService {
             digest.setDescription(updateCommand.getDescription());
             digest.setCategory(updateCommand.getCategory());
             digest.setImageUrl(updateCommand.getImageUrl());
+            digest.setResourceUrl(updateCommand.getResourceUrl());
             digest.setAuthor(updateCommand.getAuthor());
             digest.setSchedule(updateCommand.getSchedule());
             digest.setUpdatedOn(updateCommand.getExecOn());
