@@ -27,7 +27,7 @@ Globals:
         TABLE: !Ref NewsDigestTable
         APPLICATION_ENVIRONMENT: !Ref Stage
         CLOUD_REGION: us-east-1
-        MAIN_CLASS: com.tekcapsule.newsdigest.application.NewsDigestApplication
+        MAIN_CLASS: com.tekcapzule.newsdigest.application.NewsDigestApplication
         JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
 
 Resources:
